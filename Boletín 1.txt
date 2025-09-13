@@ -29,19 +29,14 @@ b) cantidade total, cant_total, cant5, cantidadeTotal
   cantidade total
 
 3. Expresar, utilizando operadores aritméticos, as seguintes expresións
-a)                        b)                   c) 
 
-
-
-
-d)                         e)                  f) 
-
-
-
-
-
-
-g) 
+a)    (m+n)/n                    
+b)    ((m+n)/p)/((p-r)s)               
+c)    (m+4)/(p-q)
+d)    (c*r*t)/100                     
+e)    (m+n)/(p+(q/r))              
+f)    (m/n)*(p+q)
+g)    (n*((1+i)**t)*i)/(((1+i)**t)-1)
 
 
 
@@ -49,26 +44,35 @@ g)
 4. Avalia as seguintes expresións:
 
 
-a) true and true == false
-b) not false == true
-c) (true and true) or false == true
-d) (false or false) and false != true
-e) (not(true and false)) == false
-f) “12” + “12” == “24”
-g) “34” + “43” == “3443”
+a) true and true == false                 false
+b) not false == true                      true
+c) (true and true) or false == true       true
+d) (false or false) and false != true     false
+e) (not(true and false)) == false         false
+f) “12” + “12” == “24”                    false
+g) “34” + “43” == “3443”                  true
 
 
 
 
 5. Avaliar as seguintes espresións, tendo en conta que as variables  teñen os valores:
 a) i = 1, j = 0, k = 1                                 i + k <= j – k * 3 and k >= 2
+false
 b) i = 3, j = 2, k = -1                                i == 3 or j <= 2 and k > 0
+true
 c) tipo = 10, rede = 7,5                         tipo < rede + 1,5
+false 
 d) ano = 1993                                ano % 400 == 0
+false
 e) 3 == 2 or 5 > 1 + 1 
+true
 f ) 5 – 2 > 4 and not(0,5 == 1 / 5)
+false
 g) a = 2, b = 5, c = 6, d = 10                a >= b or a >= c and a <d
+false
 h) a = 2, b = 5, c = 6, d = 10                a + b < c and a + c < d or 2 * a < a + b
+true
 i)  a = 2, b = 5, c = 6, d = 10                !(a * b < d) and !(a * b < c) or b + c <= d
+true
 
 PO-08-F04 R00 22/04/18
