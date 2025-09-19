@@ -1,0 +1,78 @@
+Modulo: SI, EXAME: 3º Control 3ª avaliación Data: 28 / 5 de  2024
+
+
+Boletín 1. Python
+
+
+1. Escribir o resultado das seguintes expresións:
+
+
+a) ((3 + 2) % 2 – 15) / 2 * 5 = – 35
+b) (6 + (6) / 7) + 35 / 2 -8 * 5 / 4 * 2 = 4.357142857142858
+c) 3 + 6 * 14 % 3 = 3
+d) 8 + 7 * 3 + 4 * 6 /2 % 4 = 29
+e) 27 % 4 +15 / 4 = 6.75
+f) 37 / 42  - 2 = -1.119047619047619
+g) 9 * 2 / 3 * 25 * 3 = 450
+h) (7 * 3 – 4 * 4) * 2 / 4 * 2 = 5
+
+
+2. Cales dos seguintes nomes de variables non son válidos?
+
+
+a) Salto- mortal , salto_mortal, salto + mortal, 2salto, “salto”
+
+  Salto- mortal, salto + mortal, "salto"
+
+b) cantidade total, cant_total, cant5, cantidadeTotal
+
+  cantidade total
+
+3. Expresar, utilizando operadores aritméticos, as seguintes expresións
+
+a)    (m+n)/n                    
+b)    ((m+n)/p)/((p-r)s)               
+c)    (m+4)/(p-q)
+d)    (c*r*t)/100                     
+e)    (m+n)/(p+(q/r))              
+f)    (m/n)*(p+q)
+g)    (n*((1+i)**t)*i)/(((1+i)**t)-1)
+
+
+
+
+4. Avalia as seguintes expresións:
+
+
+a) true and true == false                 false
+b) not false == true                      true
+c) (true and true) or false == true       true
+d) (false or false) and false != true     false
+e) (not(true and false)) == false         false
+f) “12” + “12” == “24”                    false
+g) “34” + “43” == “3443”                  true
+
+
+
+
+5. Avaliar as seguintes espresións, tendo en conta que as variables  teñen os valores:
+a) i = 1, j = 0, k = 1                                 i + k <= j – k * 3 and k >= 2
+false
+b) i = 3, j = 2, k = -1                                i == 3 or j <= 2 and k > 0
+true
+c) tipo = 10, rede = 7,5                         tipo < rede + 1,5
+false 
+d) ano = 1993                                ano % 400 == 0
+false
+e) 3 == 2 or 5 > 1 + 1 
+true
+f ) 5 – 2 > 4 and not(0,5 == 1 / 5)
+false
+g) a = 2, b = 5, c = 6, d = 10                a >= b or a >= c and a <d
+false
+h) a = 2, b = 5, c = 6, d = 10                a + b < c and a + c < d or 2 * a < a + b
+true
+i)  a = 2, b = 5, c = 6, d = 10                !(a * b < d) and !(a * b < c) or b + c <= d
+true
+
+PO-08-F04 R00 22/04/18
