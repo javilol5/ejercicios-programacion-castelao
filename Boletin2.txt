@@ -4,17 +4,123 @@ Boletín 2
 Codifica este programa nun proxecto chamado boletin2_1
 
 
+base = 4
+altura = 3
+print((base*altura)/2)
+
+
     2- Realiza un ordinograma que permita calcular o área dun cadrado de 3 m de lado. De seguido crea un proxecto en java, co nome boletin2_2, para executalo.
 
+
+Iniciar:                Comenzar el proceso.
+Verificar datos:        ¿Tienes el valor del lado del cuadrado?
+
+Si sí, continúa al siguiente paso.
+
+Si no, detén el proceso y proporciona el valor del lado.
+
+Calcular el área:        El área de un cuadrado se calcula usando la fórmula A=lado^2
+Realizar cálculo:        Multiplicar el valor del lado por sí mismo: 3×3=9 metros cuadrados.
+Mostrar resultado:        El área del cuadrado es 9 m².
+Fin.
 
 
     3- Crea un algoritmo que cambie euros a dólares (O cambio pídese por teclado).   Codifica o programa, correspondente, para executar o programa co nome boletin2_3  
 
 
+def main():
+    euros = int(input("Introduce cantidad en Euros: "))
+    euroadolar = 1.1774
+    print(f"{(round((euros*euroadolar),2))}$")
+if __name__ == "__main__":
+    main()
 
     4- Deseña un ordinograma que lea 2 números e calcule a suma, despois a resta, a continuación o produto e por último o cociente. Amosa o resultado de cada operación. De seguido codifica o programa correspondente
+
+
+Inicio
+  ↓
+[ Ler número 1 → num1 ]
+  ↓
+[ Ler número 2 → num2 ]
+  ↓
+[ suma ← num1 + num2 ]
+  ↓
+[ resta ← num1 - num2 ]
+  ↓
+[ produto ← num1 * num2 ]
+  ↓
+[ Se num2 ≠ 0 ]
+    ↓ Sí                         ↓ Non
+[ cociente ← num1 / num2 ]   [ Mensaxe: "Erro: división por cero" ]
+  ↓
+[ Amosar suma ]
+  ↓
+[ Amosar resta ]
+  ↓
+[ Amosar produto ]
+  ↓
+[ Amosar cociente ou erro ]
+  ↓
+Fin
+
+
+
+
+
+def main():
+    num1 = int(input("Introduce el primer número: "))
+    num2 = int(input("Introduce el segundo número: "))
+
+
+    suma = num1 + num2
+    resta = num1 - num2
+    producto = num1 * num2
+
+
+    print(f"Suma:     {suma}")
+    print(f"Resta:    {resta}")
+    print(f"Producto:  {producto}")
+
+
+    if num2 != 0:
+        cociente = num1 / num2
+        print(f"Cociente: {cociente}")
+    else:
+        print("Error, no se puede dividir entre cero")
+if __name__ == "__main__":
+    main()
+
+
+
+
 
 
 
     5- Escribe un programa que lea o valor dunha distancia en millas mariñas e a pase a metros ( 1 milla mariña = 1852 m ).
 Codifica o programa correspondente para executar o programa
+
+
+def main():
+    millas = int(input("Introduce distancia en Millas: "))
+    metromillas = 1852
+    print(f"{(round((millas*metromillas),2))} m")
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
