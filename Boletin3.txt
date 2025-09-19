@@ -1,0 +1,86 @@
+Boletín 3
+Neste boletín os vai ser de moita axuda que primeiro fagades o ordinograma e despois codifiquedes.
+1- Codifica un programa que solicite un número por teclado e que saque un mensaxe que diga “É un número positivo”, sempre que cumpra esa condición.
+
+
+def main():
+  num = int(input("Introduce un numero "))
+
+  if num >= 0:
+    print("Es un numero positivo")
+  else:
+    print("Es un numero negativo")
+
+if __name__ == "__main__":
+    main()
+
+
+2- Escribe un programa no que se tecleen dous números. Se o primeiro é maior ou igual que o segundo,visualizaremos a resta. En calquera caso visualizaremos a suma.
+
+
+def main():
+  num1 = int(input("Introduce numero 1: "))
+  num2 = int(input("Introduce numero 2: "))
+
+  if num1 >= num2:
+    print(num1 - num2)
+  else:
+    print(num1 + num2)
+
+if __name__ == "__main__":
+    main()
+
+
+3- Codificar o programa que o teclear un número por teclado, mostre por consola o signo “ + “ se o número é positivo, o signo “ –“ se é negativo e “ 0 “ se é cero.
+
+
+def main():
+  num = int(input("Introduce un numero: "))
+
+  if num == 0:
+    print('0')
+  elif num > 0:
+    print('+')
+  else:
+    print('-')
+
+if __name__ == "__main__":
+    main()
+
+
+4- Coñecidos, o nome e o peso de dúas persoas, o programa escribirá por consola os datos da persoa que pesa máis e a diferenza de peso entre elas.
+
+
+def main():
+  np1 = str(input("Introduce el nombre de persona 1: "))
+  pp1 = int(input("Introduce el peso de persona 1: "))
+  np2 = str(input("Introduce el nombre de persona 2: "))
+  pp2 = int(input("Introduce el peso de persona 2: "))
+
+  if pp1 > pp2:
+    print("Gana", np1, "que pesa", pp1, "y le saca", pp1 - pp2, "kg a", np2)
+  else:
+    print("Gana", np2, "que pesa", pp2, "y le saca", pp2 - pp1, "kg a", np1)
+
+if __name__ == "__main__":
+    main()
+
+
+5- Dados 3 números que se supoñen distintos, indicar cal é o maior.
+
+
+def main():
+  num1 = int(input("Introduce numero 1: "))
+  num2 = int(input("Introduce numero 2: "))
+  num3 = int(input("Introduce numero 3: "))
+
+  if num1 > num2 and num1 > num3:
+    print(num1)
+  elif num2 > num3:
+    print(num2)
+  else:
+    print(num3)
+
+if __name__ == "__main__":
+    main()
+
