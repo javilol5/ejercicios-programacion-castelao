@@ -1,0 +1,173 @@
+	 	 	 	
+Boletín 4. Condicionais
+
+1- Un almacén clasifica os seus produtos segundo a seguinte táboa de vendas anuais:
+Vendas anuais			Artigo de consumo
+< = 100 produtos			baixo
+>100 e < = 500			medio
+> 500 e < = 1000			alto
+> 1000 				primeira necesidade
+Coñecido o nome do artigo e as vendas anuais. Indicar de que tipo é.
+
+
+def main():
+    nombre = str(input("Ingrese nombre de producto "))
+    ventas = int(input("Ingrese cantidad de ventas anuales "))
+    consumo = ""
+    if ventas <= 100:
+        consumo = "Baja"
+    elif ventas <= 500:
+        consumo = "Media"
+    elif ventas <= 1000:
+        consumo = "Alta"
+    else:
+        ventas = "de Primera Necesidad"
+    
+    print("El producto", nombre, "tiene una prioridad", consumo)
+
+if __name__ == "__main__":
+    main()
+
+
+2- Codifica un programa que, utilizando un menú de opcións, calcule a superficie de distinto tipo de figuras.
+O usuario seleccionará a opción desexada escribindo a opción. Segundo esta, o programa pediralle os datos necesarios para realizar o cálculo, visualizará o resultado .
+No caso de premer unha opción que non teña o menú visualizar unha mensaxe de “Opción incorrecta “.
+
+1…. Cadrado
+2…. Triangulo
+3…. Círculo
+
+
+def main():
+
+    print("1. Cuadrado")
+    print("2. Triangulo")
+    print("3. Circulo")
+
+    PI = 3.1416
+
+    opcion = input("Elige la opcion para calcular: ")
+
+    if opcion == "1":
+        lado = float(input("Introduce el lado del cuadrado: "))
+        area = lado * lado
+        print(f"La superficie del cuadrado es {area:.2f}")
+
+    elif opcion == "2":
+        base = float(input("Introduce la base del triangulo: "))
+        altura = float(input("Introduce la altura del triangulo: "))
+        area = (base * altura) / 2
+        print(f"La superficie del triangulo es {area:.2f}")
+
+    elif opcion == "3":
+        radio = float(input("Introduce el radio de la circunferencia: "))
+        area = PI * (radio ** 2)
+        print(f"La superficie de la circunferencia es {area:.2f}")
+
+    else:
+        print("Opcion incorrecta")
+
+if __name__ == "__main__":
+    main()
+
+
+3. Utiliza o operador ternario para calcular o valor absoluto dun número que se solicita o usuario por teclado.
+
+
+def main():
+  num = int(input("Introduce numero: "))
+
+  if num > 0:
+    print(num)
+  elif num < 0:
+    print(-num)
+  else:
+    print(0)
+
+if __name__ == "__main__":
+    main()
+
+
+4. Escribe un programa que solicite o usuario un número comprendido entre 1 e 99. O programa ten que mostralo con letras, por exemplo, para o 56, mostrará: “Cincuenta e seis”.
+
+
+def main():
+  num = int(input("Introduce un numero entre 1 y 99: "))
+
+  cero_a_vente = {
+    0: "",
+    1: "uno",
+    2: "dos",
+    3: "tres",
+    4: "cuatro",
+    5: "cinco",
+    6: "seis",
+    7: "siete",
+    8: "ocho",
+    9: "nueve",
+    10: "diez",
+    11: "once",
+    12: "doce",
+    13: "trece",
+    14: "catorce",
+    15: "quince",
+    16: "dieciseis",
+    17: "diecisiete",
+    18: "dieciocho",
+    19: "diecinueve"
+  }
+
+  decenas = {
+    2: "veinti",
+    3: "treinta",
+    4: "cuarenta",
+    5: "cincuenta",
+    6: "sesenta",
+    7: "setenta",
+    8: "ochenta",
+    9: "noventa"
+  }
+
+  if num < 1 or num > 99:
+      print("Numero incorrecto")
+  else:
+      if num < 20:
+        print(cero_a_vente[num])
+      else:
+        num = str(num)
+        primernum = int(num[0])
+        segundonum = int(num[1])
+        if segundonum == 0:
+          print(decenas[primernum],cero_a_vente[segundonum])
+        else:
+          print(decenas[primernum],"y",cero_a_vente[segundonum])
+
+if __name__ == "__main__":
+    main()
+
+    
+5. O DNI ten unha parte numérica de i díxitos seguido dunha letra que se obtén a partir do número da seguinte forma:
+letra = número DNI % 22.
+
+Baseándote nesta información, elixe a letra a partir da numeración da seguinte táboa:
+0	1   2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	
+T	R	W	A	G	M	Y	F	P	D	X	B	N	J	Z	S	Q	V	H	L	C	K	E	
+
+Deseña unha aplicación na que, dado un número de DNI, calcule a letra que lle corresponde. Observa que un número de 8 díxitos entra dentro do rango dun tipo int.
+
+
+def main():
+  dni = int(input("Introduce DNI sin letra: "))
+
+  tabla = [
+    "T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"
+    ]
+
+  numletra = dni % 23
+
+  letra = tabla[numletra]
+
+  print(f"El DNI completo es: {dni}{letra}")
+
+if __name__ == "__main__":
+    main()
