@@ -110,9 +110,155 @@ if __name__ == "__main__":
 
 
 
+Boletín extra tema2
+Organizar o programa mediante seudo código e ordinograma antes de facer a codificación.
+Realiza o ordinograma correspondente a un programa que saque por pantalla a 	porcentaxe descontada nunha compra. Introducindo, por teclado, o prezo da tarifa e o prezo pagado.
+
+Inicio
+  ↓
+[ Ler prezo_tarifa ]
+  ↓
+[ Ler prezo_pagado ]
+  ↓
+[ desconto ← prezo_tarifa - prezo_pagado ]
+  ↓
+[ porcentaxe ← (desconto / prezo_tarifa) * 100 ]
+  ↓
+[ Amosar porcentaxe descontada ]
+  ↓
+Fin
 
 
 
+Realiza o ordinograma e despois codifica un programa que reciba como dato de entrada o valor dunha temperatura expresada en graos centígrados e calcule o seu equivalente en graos Fahrenheit e graos Kelvin.
+
+
+Inicio
+  ↓
+[ Ler temperatura_C ]
+  ↓
+[ temperatura_F ← (temperatura_C × 9/5) + 32 ]
+  ↓
+[ temperatura_K ← temperatura_C + 273.15 ]
+  ↓
+[ Amosar temperatura_F ]
+  ↓
+[ Amosar temperatura_K ]
+  ↓
+Fin
+
+
+def main():
+    tempC = int(input("Ingrese Cantidad de Grados º "))
+    tempF = (tempC * 9 / 5) + 32
+    tempK = tempC + 273.15
+    print(tempF)
+    print(tempK)
+
+if __name__ == "__main__":
+    main()
+
+
+Deseña un programa para o software dunha máquina, que converta una 	cantidade enteira de diñeiro, que está presentada en billetes de 100, 20, 5 e moedas de 1 €, no seu equivalente en euros. Por exemplo 2 billetes de 100€, 	3 billetes de 20 €, 6 moedas de 1€ visualizaríamos 266 € ).
+
+
+def main():
+    b100 = int(input("Cuantos billetes de 100? "))
+    b20 = int(input("Cuantos billetes de 20? "))
+    b5 = int(input("Cuantos billetes de 5? "))
+    b1 = int(input("Cuantos billetes de 1? "))
+
+    b100 = b100 * 100
+    b20 = b20 * 20
+    b5 = b5 * 5
+    suma = b100 + b20 + b5 + b1
+    print(suma)
+
+if __name__ == "__main__":
+    main()
+
+
+
+Realiza un algoritmo e codifica o programa correspondente que lea, dende o teclado, unha cantidade enteira en euros e amose, por pantalla, o 	seu desglose en billetes de 100, 20, 5 e moedas de 1 €.
+
+
+
+
+def main():
+    resultado = int(input("Cuanto dinero tienes? "))
+
+    b100 = resultado // 100
+    resultado = resultado % 100
+    
+    b20 = resultado // 20
+    resultado = resultado % 20
+    
+    b5 = resultado // 5
+    resultado = resultado % 5
+    
+    b1 = resultado // 1
+    resultado = resultado % 1
+    
+    print("Billetes de 100 €:", b100)
+    print("Billetes de 20 €: ", b20)
+    print("Billetes de 5 €: ", b5)
+    print("Moedas de 1 €: ", b1)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+Fai o algoritmo e programa que calcule o soldo bruto e líquido, a percibir por unha persoa. Para iso hai que ter en conta, que o soldo total inclúe os seguintes conceptos:
+
+
+Soldo 	fixo. 	
+ 	
+Comisión: 	5% sobre importe total de vendas
+ 	
+Quilometraxe: 	2 € por km
+ 	
+Dietas: 	30 € por día de desprazamento.
+
+
+Para calcular o soldo líquido debemos descontarlle ao soldo bruto:
+I.R.P.F. = 18 % do soldo total.
+ 	
+Retención a seguridade social : 36 €.
+
+
+
+
+def main():
+
+    SueldoFijo = int(input("Cuanto es el sueldo Fijo? "))
+    Ventas = int(input("Cuanto dinero gano en ventas? "))
+    Km = int(input("Cuanto kilometros recorrio? "))
+    DiasDieta = int(input("Cuantos dias se comió fuera? "))
+
+    Comision = Ventas * 0.05
+    Km = Km * 2
+    Dietas = DiasDieta * 30
+
+    Bruto = SueldoFijo + Comision + Km + Dietas
+
+    Irpf = Bruto * 0.18
+    SS = 36
+
+    Liquido = Bruto - Irpf - SS
+
+    print("Esto es el sueldo Bruto: ", Bruto)
+    print("Esto es el sueldo Liquido: ", Liquido)
+
+
+
+
+
+
+if __name__ == "__main__":
+    main()
 
 
 
