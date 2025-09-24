@@ -1,0 +1,16 @@
+Boletín 5. Bucles
+
+1   Escribir un ciclo definido para imprimir por pantalla tódolos números entre	10 e 20.
+2   Escribir un programa que converta un valor dado en grados Fahrenheit a grados Celsius. Recordade que a fórmula para a conversión é: F = 9/5 * C + 32.
+3   Utiliza o programa anterior para xerar unha táboa de conversión de temperaturas, dende 0º F ata 120º F, de 10 en 10.
+4   Escribir un programa que imprima tódolos números pares entre dous números que se lle pidan o usuario.
+5   Escribir un programa que reciba un número n por parámetro e imprima os primeiros n números triangulares, xunto co seu índice. Os números triangulares obteñense mediante a suma dos números naturales dende 1 ata n. É dicir, si se piden os primeros 5 números triangulares, o programa debe imprimir:
+1 - 1
+2 - 3
+3 - 6
+4 - 10
+5 - 15
+Nota: facelo usando e sen usar a ecuación n ∗ (n + 1) / 2. Cal realiza máis operacións?
+6   Escribir un programa que tome unha cantidade m de valores ingresados polo usuario, a cada un lle calcule o factorial e imprima o resultado xunto co número de orden correspondiente.
+7   Escribir un programa que imprima por pantalla tódalas fichas de dominó, de unha por liña e sen repetir.
+8   Modificar o programa anterior para que poida xerar fichas dun xogo que pode ter números de 0 a n.
