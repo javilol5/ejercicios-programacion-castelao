@@ -24,7 +24,8 @@ def main():
     16: "dieciseis",
     17: "diecisiete",
     18: "dieciocho",
-    19: "diecinueve"
+    19: "diecinueve",
+    20: "veinte"
   }
 
   decenas = {
@@ -41,12 +42,15 @@ def main():
   if num < 1 or num > 99:
       print("Numero incorrecto")
   else:
-      if num < 20:
+      snum = str(num)
+      primernum = int(snum[0])
+      segundonum = int(snum[1])
+      if num <= 20:
         print(cero_a_vente[num])
+      if num <= 29:
+          print(decenas[primernum]+cero_a_vente[segundonum])
       else:
-        num = str(num)
-        primernum = int(num[0])
-        segundonum = int(num[1])
+
         if segundonum == 0:
           print(decenas[primernum],cero_a_vente[segundonum])
         else:
