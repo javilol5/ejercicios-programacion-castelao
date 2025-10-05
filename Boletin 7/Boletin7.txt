@@ -1,0 +1,13 @@
+	 	 	 	
+Boletín 7. Cadeas de caracteres
+
+1  Mostra a lonxitude do texto: “ Isto é Python!” 
+2  Desmenuza o String “Python” mostrándoo por pantalla carácter a carácter.
+3  Invertir o texto: “Python para todos”
+4  Elimina os espazos do texto: “Guido Van Rossum creou Python”
+5  Conta as vocais e as consoantes do String “Python Python Python”. Ollo cos espazos!
+6  Divide a cadea de texto “ www. phytonparatodos. com” en duas partes “ www. phyton” e “paratodos. com”. Para posteriormente concaténalas e mostralas de novo.
+7  Transforma a cadea de texto “ Phytoneros” a maiúsculas. Garda o valor na variable e posteriormente convértea novamente a minúsculas.
+8  Compara se o String “Python” é igual que o String “ JavaScript”.
+9  Sobre a cadea de texto “ Jeve jeve jeve”, substitúe todas as vocais e pola vogal para dando como resultado “java java java”.
+10 Tenta escribir un método, que dado un obxecto da clase str conte diferentes tipos de caracteres. En particular, o método deberá imprimir o número de letras, díxitos e espazos en branco da cadea. Tenta facer un programa que escriba o cálculo da cadea: «Ola, son alumno de DAM1, e son programador desde o 2025».
