@@ -14,7 +14,7 @@ palabras = [
 ]
 
 palabra = random.choice(palabras)
-print(palabra)
+#print(palabra)
 guess = ["_"] * len(palabra)
 vida = 9
 while "_" in guess:
