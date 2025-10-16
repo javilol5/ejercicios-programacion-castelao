@@ -10,6 +10,7 @@ def main():
     while num != 0:
         num = int(input("Ingrese numero " + str(x+1) + " (0 para terminar): "))
         numeros.append(num)
+        x += 1
     else:
         numeros = numeros[:-1]
         for n in numeros:
