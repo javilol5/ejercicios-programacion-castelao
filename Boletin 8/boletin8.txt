@@ -1,0 +1,22 @@
+
+Boletín 8. Tuplas e listas
+1 Escribir unha función que reciba unha tupla de elementos e indique si se encontran ordeados de menor a maior ou non.
+2 Escribir unha función que indique si duas fichas de dominó encaixan ou non. As fichas son recibidas en duas tuplas, por exemplo: (3,4) e (5,4). A función devolta un booleano co resultado do encaixe.
+3 Escribir unha función que reciba unha tupla con nomes e para cada nome imprima unha mensaxe ‘Estimado don/dona Nome’
+4 Escribir unha función que reciba unha tupla con nomes, unha posición de orixen p e unha cantidade n, e imprima a mensaxe anterior (exercicio 3) para os n nombres que se encontran a partires da posición p.
+5 Modificar as funcións anteriores para que teñan en conta o xénero do destinatario, para elo, deberán recibir unha tupla de tuplas, contendo o nome e o xénero, adaptando a mensaxe con ‘don’ ou ‘dona’ dependendo deste.
+6 Dada unha lista de números enteiros, escribir unha función que:
+Devolte unha lista con tódolos que sexan primos.
+Devolte o sumatorio e o promedio dos valores.
+Devolte unha lista co factorial de cada un de eses números.
+7 Dada unha lista de números enteiros e un enteiro k, escribir unha función que:
+Devolte tres listas, unha cos menores, outra cos maiores e outra cos iguais a k.
+Devolte unha lista con aqueles que son múltiplos de k.
+8 Escribir unha función que reciba unha lista de tuplas (Apelido, Nome, Inicial_segundo_nome) e devolte unha lista de cadenas onde cada unha conteña primero o nome, logo a inicial cun punto, e logo o apelido.
+9 Escribir unha función empaquetar para unha lista, onde empaquetar significa indicar a repetición de valores consecutivos mediante unha tupla (valor, cantidade de repeticións). Por exemplo, empaquetar ([1, 1, 1, 3, 5, 1, 1, 3, 3]) debe devoltar [(1, 3) , (3, 1) , (5, 1), (1, 2), (3, 2)].
+Matrices.
+10 Escribir unha función que reciba duas matrices e devolte a suma.
+11 Escribir unha función que reciba duas matrices e devolte o produto.
+Pregado de un texto. Escribir unha función que reciba un texto e unha lonxitude e devolva unha lista de cadeas de como máximo esa lonxitude. As líñas deben cortarse correctamente nos espazos (sen cortar as palabras).
+
+
