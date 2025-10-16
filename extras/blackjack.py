@@ -29,9 +29,77 @@ diseño = {
     12 : "🂭",
     13 : "🂮"
 }
+manos_blackjack = [["A","10"],["A","J"],["A","Q"],["A","K"],["10","A"],["J","A"],["Q","A"],["K","A"]]
+mano_jugador = [random.choice(cartas),random.choice(cartas)]
+mano_dealer = []
+print("Mano del jugador: ")
+print(" ".join(mano_jugador))
+print()
+if mano_jugador in manos_blackjack:
+    print("Mano del jugador: ")
+    print(" ".join(mano_jugador))
+    print()
+    print("¡Blackjack! Ganaste.")
+num_mano_jugador = sum(int(10 if carta in ["J","Q","K"] else 11 if carta == "A" else carta) for carta in mano_jugador)
+while num_mano_jugador <= 21:
+    print("Pedir carta (P) ")
+    print("Doblar (D) ")
+    print("Plantarse (S) ")
+    opcion = input("¿Qué quieres hacer? ").upper()
+    if opcion == "P":
+        mano_jugador.append(random.choice(cartas))
+        print("Mano del jugador: ")
+        print(" ".join(mano_jugador))
+        print()
+        if sum([10 if carta in ["J","Q","K"] else 11 if carta == "A" else int(carta) for carta in mano_jugador]) > 21:
+            print("Te pasaste de 21. Pierdes.")
+    elif opcion == "D":
+        mano_jugador.append(random.choice(cartas))
+        print("Mano del jugador: ")
+        print(" ".join(mano_jugador))
+        print()
+        if sum([10 if carta in ["J","Q","K"] else 11 if carta == "A" else int(carta) for carta in mano_jugador]) > 21:
+            print("Te pasaste de 21. Pierdes.")
+    elif opcion == "S":
+        print("Te plantas con: ")
+        print(" ".join(mano_jugador))
+        print()
+    else:
+        print("Opción no válida, escribe 'P', 'D' o 'S'.")
+
+print("Mano del jugador: ")
+print(" ".join(mano_jugador))
+print()
 
 
-carta = random.choice(cartas)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''carta = random.choice(cartas)
 
 def valor_carta(carta):
     carta = random.choice(cartas)
@@ -115,4 +183,4 @@ while True:
         print("Opción no válida, escribe 's' o 'n'.")
 
 print(cartas_bonitas)
-print(diseño)
+print(diseño)'''
