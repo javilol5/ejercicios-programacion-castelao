@@ -3,7 +3,7 @@
 #Devolte unha lista con aqueles que son múltiplos de k.
 
 def maiores(nums,k):
-    
+
     mas = []
     menos = []
     igual = []
@@ -19,12 +19,24 @@ def maiores(nums,k):
     return mas,menos,igual
 
 
+def multiplos(nums,k):
 
+    multiples = []
+
+    for n in nums:
+        if n % k == 0:
+            multiples.append(n)
+    
+    return multiples
 
 # Ejemplo de uso
 k = 4
-lista = maiores([1,2,3,4,5,6,7,8,9],k)
-mas,menos,igual=lista
-print(mas, "son mayores a",k)
-print(menos,"son menores a",k)
-print(igual,"son iguales a",k)
+nums = [1,2,3,4,5,6,7,8,9]
+
+mas, menos, igual = maiores(nums, k)
+print(mas, "son mayores a", k)
+print(menos, "son menores a", k)
+print(igual, "son iguales a", k)
+
+lista_multiplos = multiplos(nums, k)
+print(lista_multiplos, "son múltiplos de", k)
