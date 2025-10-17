@@ -1,4 +1,5 @@
 #10 Escribir unha función que reciba duas matrices e devolte a suma.
+#Escribir unha función que reciba duas matrices e devolte o produto.
 def sumar_matrices(matriz1, matriz2):
     suma=[]
     for n1, n2 in zip(matriz1, matriz2):
