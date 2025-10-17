@@ -1,5 +1,6 @@
 #Crear juego del ahorcado
 import random
+import unicodedata
 palabras = [
     "apple", "table", "chair", "house", "water", "bread", "light", "music", "sport", "plant",
     "fruit", "style", "world", "sleep", "smile", "drink", "dance", "beach", "cloud", "stone",
@@ -90,7 +91,12 @@ vida = 9
 print(vidas[vida])
 while "_" in guess:
     print("".join(guess))
-    letra = str(input("Ingresa una letra: "))
+    letrat = str(input("Ingresa una letra: ")).lower()
+    letrat = unicodedata.normalize("NFD", letrat)
+    letra = ""
+    for c in letrat:
+        if unicodedata.category(c) != 'Mn':
+            letra += c
     if letra in palabra:
         pos = []
         for i in range(len(palabra)):
