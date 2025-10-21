@@ -29,53 +29,102 @@ diseño = {
     12 : "🂭",
     13 : "🂮"
 }
+
 manos_blackjack = [["A","10"],["A","J"],["A","Q"],["A","K"],["10","A"],["J","A"],["Q","A"],["K","A"]]
 mano_jugador = [random.choice(cartas),random.choice(cartas)]
-mano_dealer = []
+mano_dealer = [random.choice(cartas)]
+print("Mano del dealer: ")
+print(" ".join(mano_dealer),"?")
+print()
 print("Mano del jugador: ")
 print(" ".join(mano_jugador))
 print()
 
-if mano_jugador in manos_blackjack:
-    print("Mano del jugador: ")
-    print(" ".join(mano_jugador))
-    print()
-    print("¡Blackjack! Ganaste.")
+
 
 num_mano_jugador = sum(int(10 if carta in ["J","Q","K"] else 11 if carta == "A" else carta) for carta in mano_jugador)
+num_mano_dealer = sum(int(10 if carta in ["J","Q","K"] else 11 if carta == "A" else carta) for carta in mano_dealer)
 
-while num_mano_jugador <= 21 or opcion != "S":
-    print("Pedir carta (P) ")
-    print("Doblar (D) ")
-    print("Plantarse (S) ")
-    opcion = input("¿Qué quieres hacer? ").upper()
-
-    if opcion == "P":
-        mano_jugador.append(random.choice(cartas))
+while num_mano_jugador <= 21:
+    if mano_jugador in manos_blackjack:
         print("Mano del jugador: ")
         print(" ".join(mano_jugador))
         print()
-        if sum([10 if carta in ["J","Q","K"] else 11 if carta == "A" else int(carta) for carta in mano_jugador]) > 21:
-            print("Te pasaste de 21. Pierdes.")
-
-    elif opcion == "D":
-        mano_jugador.append(random.choice(cartas))
-        print("Mano del jugador: ")
-        print(" ".join(mano_jugador))
-        print()
-        if sum([10 if carta in ["J","Q","K"] else 11 if carta == "A" else int(carta) for carta in mano_jugador]) > 21:
-            print("Te pasaste de 21. Pierdes.")
-
-    elif opcion == "S":
-        print("Te plantas con: ")
-        print(" ".join(mano_jugador))
-        print()
-
+        print("¡Blackjack! Ganaste.")
+        break
     else:
-        print("Opción no válida, escribe 'P', 'D' o 'S'.")
+        print("Pedir carta (P) ")
+        print("Doblar (D) ")
+        print("Plantarse (S) ")
+        opcion = input("¿Qué quieres hacer? ").upper()
 
+        if opcion == "P":
+            mano_jugador.append(random.choice(cartas))
+            print("Mano del jugador: ")
+            print(" ".join(mano_jugador))
+            print()
+            if sum([10 if carta in ["J","Q","K"] else 11 if carta == "A" else int(carta) for carta in mano_jugador]) > 21:
+                print("Te pasaste de 21. Pierdes.")
+                break
+
+        elif opcion == "D":
+            mano_jugador.append(random.choice(cartas))
+            print("Mano del jugador: ")
+            print(" ".join(mano_jugador))
+            print()
+            if sum([10 if carta in ["J","Q","K"] else 11 if carta == "A" else int(carta) for carta in mano_jugador]) > 21:
+                print("Te pasaste de 21. Pierdes.")
+            break
+
+        elif opcion == "S":
+            print("Te plantas con: ")
+            print(" ".join(mano_jugador))
+            print()
+            break
+
+        else:
+            print("Opción no válida, escribe 'P', 'D' o 'S'.")
+
+while num_mano_dealer < 17:
+    mano_dealer.append(random.choice(cartas))
+    num_mano_dealer = sum(int(10 if carta in ["J","Q","K"] else 11 if carta == "A" else carta) for carta in mano_dealer)
+
+
+sum_mano_jugador = 0
+sum_mano_dealer = 0
+
+for carta_mano_jugador in mano_jugador:
+    if carta_mano_jugador in ["J","Q","K"]:
+        sum_mano_jugador += 10
+    elif carta_mano_jugador == "A":
+        sum_mano_jugador += 11
+    else:
+        sum_mano_jugador += int(carta_mano_jugador)
+
+for carta_mano_dealer in mano_dealer:
+    if carta_mano_dealer in ["J","Q","K"]:
+        sum_mano_dealer += 10
+    elif carta_mano_dealer == "A":
+        sum_mano_dealer += 11
+    else:
+        sum_mano_dealer += int(carta_mano_dealer)
+
+if sum_mano_dealer > sum_mano_jugador:
+    print("El dealer gana.")
+elif sum_mano_dealer < sum_mano_jugador:
+    print("El jugador gana.")
+else:
+    print("Empate.")
+
+
+
+print()
+print("Mano del dealer: ")
+print(mano_dealer)
+print(sum_mano_dealer)
+print()
 print("Mano del jugador: ")
-print(" ".join(mano_jugador))
+print(sum_mano_jugador)
 print()
 
 
