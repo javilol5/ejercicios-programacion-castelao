@@ -116,15 +116,74 @@ elif sum_mano_dealer < sum_mano_jugador:
 else:
     print("Empate.")
 
+jugador_bonito = []
+dealer_bonito = []
 
+for carta in mano_jugador:
+    if carta == "A":
+        jugador_bonito.append(diseño[1])
+    elif carta == "2":
+        jugador_bonito.append(diseño[2])
+    elif carta == "3":
+        jugador_bonito.append(diseño[3])
+    elif carta == "4":
+        jugador_bonito.append(diseño[4])
+    elif carta == "5":
+        jugador_bonito.append(diseño[5])
+    elif carta == "6":
+        jugador_bonito.append(diseño[6])
+    elif carta == "7":
+        jugador_bonito.append(diseño[7])
+    elif carta == "8":
+        jugador_bonito.append(diseño[8])
+    elif carta == "9":
+        jugador_bonito.append(diseño[9])
+    elif carta == "10":
+        jugador_bonito.append(diseño[10])
+    elif carta == "J":
+        jugador_bonito.append(diseño[11])
+    elif carta == "Q":
+        jugador_bonito.append(diseño[12])
+    elif carta == "K":
+        jugador_bonito.append(diseño[13])
+
+for carta in mano_dealer:
+    if carta == "A":
+        dealer_bonito.append(diseño[1])
+    elif carta == "2":
+        dealer_bonito.append(diseño[2])
+    elif carta == "3":
+        dealer_bonito.append(diseño[3])
+    elif carta == "4":
+        dealer_bonito.append(diseño[4])
+    elif carta == "5":
+        dealer_bonito.append(diseño[5])
+    elif carta == "6":
+        dealer_bonito.append(diseño[6])
+    elif carta == "7":
+        dealer_bonito.append(diseño[7])
+    elif carta == "8":
+        dealer_bonito.append(diseño[8])
+    elif carta == "9":
+        dealer_bonito.append(diseño[9])
+    elif carta == "10":
+        dealer_bonito.append(diseño[10])
+    elif carta == "J":
+        dealer_bonito.append(diseño[11])
+    elif carta == "Q":
+        dealer_bonito.append(diseño[12])
+    elif carta == "K":
+        dealer_bonito.append(diseño[13])
 
 print()
 print("Mano del dealer: ")
 print(mano_dealer)
 print(sum_mano_dealer)
+print("".join(dealer_bonito))
 print()
 print("Mano del jugador: ")
 print(sum_mano_jugador)
+print("".join(jugador_bonito))
 print()
 
 
