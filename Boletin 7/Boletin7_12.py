@@ -18,13 +18,13 @@ def insertar_entre_caracter(texto,caracter):
     return sol[:-1]
 
 def reemplazar_caracter(texto,caracter):
-    sol = ("")
+    sol = ""
     for char in texto:
         sol += caracter
     return sol
 
 def insertar_cada_tres(texto,caracter):
-    sol = ("")
+    sol = ""
     i = 1
     for char in texto:
         if i % 3 == 0:
