@@ -13,13 +13,7 @@ def tres_ultimos(palabra):
     return palabra[-2:]
 
 def cada_dos(palabra):
-    sol = ""
-    i = 1
-    for char in palabra:
-        if i % 2 != 0:
-            sol += char
-        i += 1
-    return sol
+    return palabra[::2]
 
 def normal_inverso(palabra):
     return palabra + palabra[::-1]
