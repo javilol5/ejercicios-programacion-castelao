@@ -111,11 +111,11 @@ def lista_compra_programa():
             mostrar_lista(lista_compra)
 
         elif opcion == 4:
-            print("👋 Saliendo del programa.")
+            print("Saliendo del programa.")
             break
 
         else:
-            print("⚠️ Opción no válida. Intenta de nuevo.")
+            print("Opción no válida. Intenta de nuevo.")
 
 # Ejecutar programa
 lista_compra_programa()
