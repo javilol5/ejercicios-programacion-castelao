@@ -1,3 +1,4 @@
+'''
 class Persona:
     def __init__(self, nombre, edad, dni, direccion, nacionalidad):
         self.nombre = nombre
@@ -35,3 +36,36 @@ p1 = Persona("Xoán López", 22, "12345678Z", "Rúa Nova 15, Santiago", "Galega"
 print(p1.aCadea())
 print(p1.comprobarEdade(p1.edad))
 print(p1.comprobarDni(p1.dni))
+'''
+
+class Persoa:
+    def __init__(self, nombre, edad, dni, direccion, nacionalidad):
+        self.nombre = nombre
+        if self.comprobarEdad(edad):
+            self.edad = edad
+        else:
+            self.edad = 0
+        if self.comprobarDni(dni):
+            self.dni = dni
+        else:
+            self.dni = "00000000X"
+        self.direccion = direccion
+        self.nacionalidad = nacionalidad
+
+    def comprobarEdade(self, edad):
+        if edad >= 0 or edad <= 150:
+            return True
+        else:
+            return False
+
+    def comprobarDni(self, dni):
+        if len(dni) == 9 and dni[:-1].isdigit() and dni[-1].isalpha():
+            letraDni = "TRWAGMYFPDXBNJZSQVHLCKE"
+            resto = int(dni[:-1]) % 23
+            if letraDni[resto] == dni[-1:].upper():
+                return True
+            else:
+                return False
+        else:
+            return False
+
