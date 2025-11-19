@@ -81,7 +81,7 @@
 
 
 #6
-"""
+
 def contraseña_valida():
     nom = str(input("Ingresa tu nombre: "))
     cont = str(input("Ingresa tu contraseña: "))
@@ -113,4 +113,4 @@ def contraseña_valida():
     nome_contrasinal.append(nome_cont)
     return True
 
-print(contraseña_valida())"""
+print(contraseña_valida())
