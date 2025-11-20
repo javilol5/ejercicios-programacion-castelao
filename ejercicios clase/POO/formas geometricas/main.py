@@ -1,13 +1,22 @@
 from punto import Punto
 from circulo import Circulo
 from persona import Persoa
+from Punto2 import Punto2
 
 
 
+p3 = Punto2(5,6)
+p3.setX(7)
+p3.x = 6
+print(p3)
+print(p3.x)
+print(p3.getY())
 
-
-p1 = Punto(2, 3)
+p1 = Punto(-2, 3)
+print(p1)
 p2 = Punto(9, 1)
+p2.x = 2
+p2.y = 3
 
 print(p1.toString())
 print(p2)

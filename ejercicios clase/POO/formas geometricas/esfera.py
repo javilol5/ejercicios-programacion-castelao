@@ -1,5 +1,3 @@
-import math
-
 from circulo import Circulo
 class Esfera(Circulo):
     def __init__(self, x, y, radio):

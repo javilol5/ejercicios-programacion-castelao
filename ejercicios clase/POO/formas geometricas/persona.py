@@ -41,7 +41,7 @@ print(p1.comprobarDni(p1.dni))
 class Persoa:
     def __init__(self, nombre, edad, dni, direccion, nacionalidad):
         self.nombre = nombre
-        if self.comprobarEdad(edad):
+        if self.comprobarEdade(edad):
             self.edad = edad
         else:
             self.edad = 0
