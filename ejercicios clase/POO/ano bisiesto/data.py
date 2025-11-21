@@ -1,3 +1,6 @@
+from calendar import month
+
+
 class Data:
     def __init__(self, day, month, year):
         self.setDia(day)
@@ -20,6 +23,16 @@ class Data:
             12: 31
         }
 
+        for mes in diasmes.keys():
+            if day > 0 and day <= diasmes[mes]:
+                self.__day = day
+            else:
+                if mes == 2 and self.eBisiesto(self.year):
+                    year = 0
+
+
+
+
     def getDia(self):
         return self.__day
 
@@ -39,36 +52,12 @@ class Data:
     def getAno(self):
         return self.__year
 
-    def esValido(self):
-
-        diasmes = {
-            1: 31,
-            2: 28,
-            3: 31,
-            4: 30,
-            5: 31,
-            6: 30,
-            7: 31,
-            8: 31,
-            9: 30,
-            10: 31,
-            11: 30,
-            12: 31
-        }
-
-        if self.__day > 31 or self.__month > 12:
-            valido = False
+    def eBisiesto(year):
+        if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+            return True
         else:
-            if self.__year % 4 != 0 and self.__day > diasmes[self.__month]:
-                valido = False
-            else:
-                diasmes[2] = 29
-                if self.__day > diasmes[self.__month]:
-                    valido = False
-                else:
-                    valido = True
+            return False
 
-        if valido == True:
-            return "La fecha es: \n\t Dia: " + str(self.__day) + " \n\t Mes: " + str(self.__month) + " \n\t Año: " + str(self.__year)
-        else:
-            return "La fecha es: \n\t Dia: 1 \n\t Mes: 1 \n\t Año: 1970"
+    def __str__(self):
+        return f"A data é {self.__day}/{self.__month}/{self.__year}"
+
