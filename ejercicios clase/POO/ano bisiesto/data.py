@@ -28,7 +28,12 @@ class Data:
                 self.__day = day
             else:
                 if mes == 2 and self.eBisiesto(self.year):
-                    year = 0
+                    if day == 29:
+                        self.__day = 29
+                else:
+                    self.__year = None
+                    self.__month = None
+                    self.__day = None
 
 
 
@@ -37,7 +42,7 @@ class Data:
         return self.__day
 
     def setMes(self, month):
-        if month>0 and month<13 and self.__ano is not None:
+        if month>0 and month<13 and self.__year is not None:
             self.__month = month
         else:
             self.__month = None
