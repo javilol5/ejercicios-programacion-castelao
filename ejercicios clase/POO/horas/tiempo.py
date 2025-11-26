@@ -1,4 +1,4 @@
-class Tiempo(Data):
+class Tiempo:
     def __init__(self, s, m, h):
         self.s = s
         self.m = m
