@@ -6,6 +6,50 @@ class Tiempo:
         self.setM(m)
         self.setH(h)
 
+    '''
+    def __init__(self, hora = 0, *minutoSegundo ):
+        if isinstance (hora, int):
+            self.__asignacionHoraInt(hora, minutoSegundo)
+                    
+        if type = (hora) == str:
+            self.__asignacionHoraStr (hora)
+        
+        if isinstance (hora, list) or isinstance (hora, tuple):
+            self.__asignacionHoraColeccion(hora)
+            
+        if isinstance (hora, float):
+            self.__asignacionHoraFloat (hora)      
+            
+            
+    def __asignacionHoraInt(self, hora):
+        self.setHora (hora)
+        if len(minutoSegundo) == 1:
+            if isinstance (minutoSegundo[0], int):
+                self.setMinuto (minutoSegundo[0])
+        elif len(minutoSegundo) == 2:
+            if isinstance (minutoSegundo[0], int):
+                self.setMinuto (minutoSegundo[0])
+            if isinstance (minutoSegundo[1], int):
+                self.setMinuto (minutoSegundo[1])
+                
+    def __asignacionHoraStr(self, hora):
+        self.setHora (hora)
+        if len(hora) == 8:
+            if hora[2] == ":2 and hora[5] == ":":
+                hms = hora.split(":")
+                if hms[0].isnumeric():
+                    h = int(hms[0])
+                    if h >=0 nad h < 24:
+                        self.setHora (h)
+                if hms[1].isnumeric():
+                    m = int(hms[1])
+                    if m >= 0 nad m < 60:
+                        self.setMinuto (m)
+                if hms[2].isnumeric():
+                    s = int(hms[2])
+                    if s >= 0 nad s < 60:
+                        self.setMinuto (s)
+
     def __str__(self):
         return f"{self.__h:02d}:{self.__m:02d}:{self.__s:02d}"
 
