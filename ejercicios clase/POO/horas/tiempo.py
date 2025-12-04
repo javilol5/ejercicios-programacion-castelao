@@ -22,61 +22,66 @@ class Tiempo:
             
             
     def __asignacionHoraInt(self, hora):
-        self.setHora (hora)
+        self.setH (hora)
         if len(hora) == 1:
             if isinstance (hora[0], int):
-                self.setMinuto (hora[0])
+                self.setM (hora[0])
         elif len(hora) == 2:
             if isinstance (hora[0], int):
-                self.setMinuto (hora[0])
+                self.setM (hora[0])
             if isinstance (hora[1], int):
-                self.setMinuto (hora[1])
+                self.setM (hora[1])
                 
     def __asignacionHoraStr(self, hora):
-        self.setHora (hora)
+        self.setH (hora)
         if len(hora) == 8:
             if hora[2] == ":2 and hora[5] == ":":
                 hms = hora.split(":")
                 if hms[0].isnumeric():
                     h = int(hms[0])
                     if h >=0 and h < 24:
-                        self.setHora (h)
+                        self.set (h)
                 if hms[1].isnumeric():
                     m = int(hms[1])
                     if m >= 0 and m < 60:
-                        self.setMinuto (m)
+                        self.setM (m)
                 if hms[2].isnumeric():
                     s = int(hms[2])
                     if s >= 0 and s < 60:
-                        self.setSegundo (s)
+                        self.setS (s)
                         
     def __asignacionHoraColeccion(self, hora):
-        self.setHora (hora) 
+        self.setH(0) 
+        self.setM(0) 
+        self.setS(0) 
         if len(hora) >= 1:
             h = int(hora[0])
-            if h >= 0 and h < 24:
-                self.setHora (h)
+            if isinstance (hora[0], int):
+                if h >= 0 and h < 24:
+                    self.setH(h)
             if len(hora) >= 2:
-                m = int(hms[1])
-                if m >= 0 and m < 60:
-                    self.setMinuto (m)
+                if isinstance (hora[1], int):
+                    m = int(hms[1])
+                    if m >= 0 and m < 60:
+                        self.setM (m)
                 if len(hora) == 3:
-                    s = int(hms[2])
-                    if s >= 0 and s < 60:
-                        self.setSegundo (s)         
+                    if isinstance(hora[2], int):
+                        s = int(hms[2])
+                        if s >= 0 and s < 60:
+                            self.setS (s)         
                         
                         
                         
     def __asignacionHoraFloat(self, hora):
         h = int(hora)
-        self.setHora(h)
+        self.setH(h)
 
         resto = (hora - h) * 60
         m = int(resto)
-        self.setMinuto(m)
+        self.setMo(m)
 
         s = int((resto - m) * 60)
-        self.setSegundo(s)               
+        self.setS(s)               
                         
                         
                         
