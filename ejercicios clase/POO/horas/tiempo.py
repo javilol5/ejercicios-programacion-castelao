@@ -23,14 +23,14 @@ class Tiempo:
             
     def __asignacionHoraInt(self, hora):
         self.setHora (hora)
-        if len(minutoSegundo) == 1:
-            if isinstance (minutoSegundo[0], int):
-                self.setMinuto (minutoSegundo[0])
-        elif len(minutoSegundo) == 2:
-            if isinstance (minutoSegundo[0], int):
-                self.setMinuto (minutoSegundo[0])
-            if isinstance (minutoSegundo[1], int):
-                self.setMinuto (minutoSegundo[1])
+        if len(hora) == 1:
+            if isinstance (hora[0], int):
+                self.setMinuto (hora[0])
+        elif len(hora) == 2:
+            if isinstance (hora[0], int):
+                self.setMinuto (hora[0])
+            if isinstance (hora[1], int):
+                self.setMinuto (hora[1])
                 
     def __asignacionHoraStr(self, hora):
         self.setHora (hora)
@@ -52,16 +52,18 @@ class Tiempo:
                         
     def __asignacionHoraColeccion(self, hora):
         self.setHora (hora) 
-        if len(hora) == 3:
+        if len(hora) >= 1:
             h = int(hora[0])
             if h >= 0 and h < 24:
                 self.setHora (h)
-            m = int(hms[1])
-            if m >= 0 and m < 60:
-                self.setMinuto (m)
-            s = int(hms[2])
-            if s >= 0 and s < 60:
-                self.setSegundo (s)         
+            if len(hora) >= 2:
+                m = int(hms[1])
+                if m >= 0 and m < 60:
+                    self.setMinuto (m)
+                if len(hora) == 3:
+                    s = int(hms[2])
+                    if s >= 0 and s < 60:
+                        self.setSegundo (s)         
                         
                         
                         
