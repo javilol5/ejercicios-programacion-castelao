@@ -39,16 +39,47 @@ class Tiempo:
                 hms = hora.split(":")
                 if hms[0].isnumeric():
                     h = int(hms[0])
-                    if h >=0 nad h < 24:
+                    if h >=0 and h < 24:
                         self.setHora (h)
                 if hms[1].isnumeric():
                     m = int(hms[1])
-                    if m >= 0 nad m < 60:
+                    if m >= 0 and m < 60:
                         self.setMinuto (m)
                 if hms[2].isnumeric():
                     s = int(hms[2])
-                    if s >= 0 nad s < 60:
-                        self.setMinuto (s)
+                    if s >= 0 and s < 60:
+                        self.setSegundo (s)
+                        
+    def __asignacionHoraColeccion(self, hora):
+        self.setHora (hora) 
+        if len(hora) == 3:
+            h = int(hora[0])
+            if h >= 0 and h < 24:
+                self.setHora (h)
+            m = int(hms[1])
+            if m >= 0 and m < 60:
+                self.setMinuto (m)
+            s = int(hms[2])
+            if s >= 0 and s < 60:
+                self.setSegundo (s)         
+                        
+                        
+                        
+    def __asignacionHoraFloat(self, hora):
+        h = int(hora)
+        self.setHora(h)
+
+        resto = (hora - h) * 60
+        m = int(resto)
+        self.setMinuto(m)
+
+        s = int((resto - m) * 60)
+        self.setSegundo(s)               
+                        
+                        
+                        
+                        
+                        '''
 
     def __str__(self):
         return f"{self.__h:02d}:{self.__m:02d}:{self.__s:02d}"
