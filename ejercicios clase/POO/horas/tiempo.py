@@ -214,3 +214,24 @@ class Tiempo:
     def mostrarFormato24(self):
         t = time(self.__h, self.__m, self.__s)
         return t.strftime("%H:%M:%S")'''
+
+    def comparar(self, otra):
+
+
+        if self.getH() < otra.getH():
+            return otra
+        elif self.getH() > otra.getH():
+            return self
+
+        if self.getM() < otra.getM():
+            return otra
+        elif self.getM() > otra.getM():
+            return self
+
+        if self.getS() < otra.getS():
+            return otra
+        elif self.getS() > otra.getS():
+            return self
+
+        return "iguales"
+
