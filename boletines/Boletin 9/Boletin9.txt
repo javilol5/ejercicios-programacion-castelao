@@ -1,0 +1,125 @@
+
+Boletín 9. Obxectos Python
+1. Crea unha clase chamada Libro que conteña os seguintes atributos:
+titulo
+autor
+ano
+numPaginas
+valoracion
+
+
+A clase debe de ter o método de inicialización.
+Establecer os métodos de acceso para todos os atributos (geters).
+Crear os métodos de asignación dos atributos (seters)
+Establecer as propiedades de forma que só se poida acceder os atributos mediante os métodos adicados a elo (geters e seters).
+Codificar o metodo amosarLibro, que devolte unha cadea e visualiza tódalas característica dun libro.
+Crear unha clase Principal co método main. Crear un libro con cada construtor e mostrar por consola a súa información.
+
+2. Implementa unha clase consumo, que forma parte da centralita electrónica dun coche e ten as seguintes características :
+Atributos :
+km kilómetros percorridos polo coche
+litros Litros de combustible consumidos
+vMed velocidade media
+pGas Prezo da gasolina
+
+Metodos :
+Un método que inicializa os valores dos atributos
+getTempo Indica o tempo empregado en realizar a viaxe
+consumoMedio consumo medio do vehículo (en litros cada 100 km )
+consumoEuros consumo medio (en € cada 100 km )
+setKms modifica o valor dos km
+setLitros actualiza a cantidade de litros
+setvMed actualiza o valor da vMed
+setPGas actualiza o valor do pGas
+Na clase principal :
+Crea un obxecto, de tipo consumo.
+Dalle a litros o valor 50 e a prezo da gasolina 1.57
+Crea un obxecto, tipo consumo, utilizando o constructor con tódolos parámetros
+Visualiza, a través do 2º obxecto, o consumo medio
+Varia o valor dos litros consumidos do 2º obxecto.
+Visualiza a velocidade media do 2º obxecto
+
+3. Temos a seguinte clase Coche:
+class Coche:
+def __init__(self):
+self.velocidade =0
+
+
+Engade a clase Coche os seguintes métodos:
+getVelocidade() . Este método devolve a velocidade actual
+acelerar (valor). Este método incrementa a velocidade na cantidade valor.
+frenar (menos). Este método diminue a velocidade na cantidade menos.
+Crea unha clase Boletin 9_3 para comprobar que o programa execútase ben, dandolle os valores que precises.
+
+4. Escribe unha clase Conta para representar unha conta bancaria. Os datos da conta son:
+Atributos :
+Nome do cliente.
+Número de conta.
+Tipo de interese.
+Saldo.
+
+A clase conterá os seguintes métodos:
+Método inicializador.
+Métodos setters/ getters para asignar e obter os datos da conta.
+Establecer as propiedades de forma que só se poida acceder os atributos mediante os métodos adicados a elo (geters e seters).
+Métodos de ingreso. Un ingreso consiste en aumentar o saldo na cantidade que se indique.
+Métodos de reintegro. Un reintegro consiste en diminuír o saldo nunha cantidade. A cantidade non pode ser negativa.
+Método transferencia que permita pasar diñeiro dunha conta a outra Exemplo de uso do método transferencia:
+ contaOrigen.transferencia( contaDestino, importe),  que indica que queremos facer unha transferencia desde contaOrigen a contaDestino do importe indicado.
+Proba o funcionamento da clase Conta na clase principal.
+
+
+
+
+
+Xestión dunha Biblioteca.
+Tarefas a realizar:
+Definir o destinatario: Quen é a persoa a quen vai dirixida a resolución do problema.
+Realizar un journey map do usuario: Descripción de como é o proceso na biblioteca, accións, obstaculos, sentimentos e oportunidades.
+Biblioteca: lista de libros, lista de usuarios, métodos para prestar e devolver libros.
+Retos para o alumnado:
+Crear métodos como prestarLibro() e devolverLibro().
+Xestionar listas de libros e usuarios con estruturas como ArrayList.
+2. Simulación dun Videoxogo
+Clases principais:
+Personaxe: atributos como nome, puntos de vida, forza, defensa.
+Arma: tipo, dano, durabilidade.
+Monstro: nome, puntos de vida, nivel de dificultade.
+Retos para o alumnado:
+Desenvolver interaccións como un combate entre personaxes e monstros.
+Implementar métodos para equipar armas ou subir de nivel.
+3. Xestión dunha Tenda Online
+Clases principais:
+Produto: nome, prezo, cantidade en stock.
+Cliente: nome, correo electrónico, cesta da compra.
+Pedido: lista de produtos, cliente, prezo total.
+Retos para o alumnado:
+Crear métodos para engadir produtos á cesta e calcular o prezo total.
+Xestionar o stock ao realizar pedidos.
+4. Organización dun Torneo Deportivo
+Clases principais:
+Equipo: nome, lista de xogadores, puntos.
+Xogador: nome, posición, número de camiseta.
+Partido: equipos participantes, marcador, data.
+Retos para o alumnado:
+Implementar métodos para actualizar o marcador dun partido.
+Xestionar unha táboa de clasificación baseada nos puntos dos equipos.
+5. Aplicación para Xestión de Reservas de Restaurantes
+Clases principais:
+Mesa: número de mesa, capacidade, dispoñibilidade.
+Reserva: cliente, data, hora, mesa reservada.
+Restaurante: lista de mesas, lista de reservas.
+Retos para o alumnado:
+Crear métodos para verificar a dispoñibilidade dunha mesa.
+Xestionar reservas e evitar conflitos de horario.
+6. Sistema de Xestión de Cursos
+Clases principais:
+Curso: nome, código, número de horas.
+Profesor: nome, especialidade, lista de cursos.
+Estudante: nome, matrícula, lista de cursos inscritos.
+Retos para o alumnado:
+Implementar métodos para inscribir estudantes nun curso.
+Crear unha lista de estudantes por curso.
+
+
+
