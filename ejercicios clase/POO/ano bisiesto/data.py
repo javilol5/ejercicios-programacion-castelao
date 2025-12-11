@@ -1,6 +1,3 @@
-from calendar import month
-
-
 class Data:
     def __init__(self, day, month, year):
         self.setDia(day)
