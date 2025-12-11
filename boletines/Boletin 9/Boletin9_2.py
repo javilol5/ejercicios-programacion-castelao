@@ -39,12 +39,25 @@ class Consumo:
     def setPgas(self, pgas):
         self.pgas = pgas
 
-    def getKm(self):
-        return self.km
-    def getLitros(self):
-        return self.litros
     def getVmed(self):
         return self.vmed
-    def getPgas(self):
-        return self.pgas
+    
+    def getTempo(self):
+        return self.km / self.vmed
+    
+    def consumoMedio(self):
+        return self.litros / self.km * 100
+    
+    def consumoEuros(self):
+        return self.consumoMedio() * self.pgas
 
+
+
+car1 = Consumo(100, 50, 60, 1.57)
+car2 = Consumo(120, 50, 80, 1.57)
+
+print(car2.consumoMedio())
+
+car2.setLitros(75)
+
+print(car2.getVmed())
