@@ -134,13 +134,38 @@ class XestorChamadas:
     def __init__(self):
         self.__chamadas = []
 
-    def engadirChamada(self, chamada):
+    def engadirChamada(self, dnicliente, telefonointerlocutor, sainte, inicio: datetime, fin: datetime):
+        if fin < inicio:
+            print("Datos invalidos")
+        chamada = {
+            "dnicliente": dnicliente,
+            "telefonointerlocutor": telefonointerlocutor,
+            "sainte": sainte,
+            "inicio": inicio,
+            "fin": fin
+        }
         self.__chamadas.append(chamada)
 
-    def importeChamadas(self, telefonocliente)
+
+    def duracionMinutos(self, chamada):
+        duracion = chamada["fin"] - chamada["inicio"]
+        return duracion.total_seconds() / 60
+
+    def importeChamadas(self, dni):
         total_minutos = 0
         for chamada in self.__chamadas:
-            if chamada.getSaínte() and chamada.getTelefonoCliente() == telefonocliente:
-                total_minutos += chamada.minutosDuracion()
+            if chamada["dnicliente"] == dni and chamada["sainte"]:
+                total_minutos += self.duracionMinutos(chamada)
         importe = 0.0002 * total_minutos
         return importe
+    
+'''
+xestor = XestorChamadas()
+
+xestor.engadirChamada("12345678A", "612345678", True, datetime(2025,12,12,9,0), datetime(2025,12,12,9,30))
+xestor.engadirChamada("12345678A", "678123456", True, datetime(2025,12,13,10,0), datetime(2025,12,13,10,45))
+xestor.engadirChamada("98765432B", "612345678", True, datetime(2025,12,12,11,0), datetime(2025,12,12,11,20))
+
+print("Importe total chamadas saíntes de Ana:", xestor.importeChamadas("12345678A"))
+print("Importe total chamadas saíntes de Pedro:", xestor.importeChamadas("98765432B"))
+'''
