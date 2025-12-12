@@ -36,13 +36,15 @@ class Persona:
                 return True
 
     def compararPersona(self, persona_comparar):
-        if self.getNombre() == persona_comparar.getNombre() and self.getIdade() == persona_comparar.getIdade() and self.getDni() == persona_comparar.getDni():
+        if self.getNombre() == persona_comparar.getNombre() and self.getIdade() == persona_comparar.getIdade() and self.getDni() == persona_comparar.getDni():  #comparo todos los datos de persona1 y persona2 para ver si son tods iguales
             return True
 
     def compararDNI(self, persona_comparar):
         if self.getDni() == persona_comparar.getDni():
             return True
 
+    def __str__(self):
+        return f"{self.__nombre}:{self.__dni}:{self.__idade}"
 '''
 persona1 = Persona("Pepe", "12345678Z", 18)
 persona2 = Persona("Maria", "12345678Z", 19)
@@ -100,6 +102,11 @@ class Empleado:
                     self.__nuss = "00/00000000/00"
         else:
             self.__nuss = "00/00000000/00"
+
+    def __str__(self):
+        return f"{self.__nombre}:{self.__dni}:{self.__idade}:{self.__empresa}:{self.__nuss}"
+
+
 '''
 empleado1 = Empleado("Juan", "12345678Z", 18, "Froiz", "0p/12345678/90")
 
@@ -137,6 +144,12 @@ class Xornada:
             duracion = self.__datahorasaida - self.__datahoraentrada
             return int(duracion.total_seconds() // 60)
 
+
+    def __str__(self):
+        return f"{self.__empleado}:{self.__datahoraentrada}:{self.__datahorasaida}"
+
+
+
 '''
 xornada1 = Xornada("Juan",datetime(2025,12,12,8,30), datetime(2025, 12, 12,10,20))
 print(xornada1.duracionMinutos())
@@ -172,6 +185,9 @@ class XornadaLaboral:
                 duracion = saida - entrada
                 minutos += int(duracion.total_seconds() // 60)
         return minutos / 60.0
+
+    def __str__(self):
+        return f"{self.__dni}:{self.__xornada}"
 
 '''
 xornadalaboral1 = XornadaLaboral("12345678Z")
