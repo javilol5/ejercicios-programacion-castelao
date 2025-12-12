@@ -57,17 +57,14 @@ class Cliente:
         return self.__telefono
     
     def __telefonoValido(self, telefono):
-        if len(telefono) != 14:
+        if len(telefono) != 15:
             return False
         if telefono[0] != "+" or telefono[3] != " " or telefono[7] != " " or telefono[11] != " ":
             return False
         num_telefono = telefono[1:14].replace(" ", "")
-        numero = 0
         for num in num_telefono:
-            if num.isdigit():
-                numero += 1
-        if numero != 11:
-            return False
+            if not num.isdigit():
+                return False
         return True
         
     def setTelefono(self, telefono):
