@@ -8,18 +8,18 @@ class Punto2:
             if x >= 0:
                 self.__x = x
             else:
-                self.__x = 0
+                raise ValueError("Numero invalido")
         else:
-            self.__x = 0
+            raise TypeError("Numero invalido")
 
     def setY(self, y):
         if type(y) == int or type(y) == float:
             if y >= 0:
                 self.__y = y
             else:
-                self.__y = 0
+                raise ValueError("Numero invalido")
         else:
-            self.__y = 0
+            raise TypeError("Numero invalido")
 
     def getX(self):
         return self.__x
