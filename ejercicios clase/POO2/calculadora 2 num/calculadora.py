@@ -32,32 +32,41 @@ class Calculadora:
         return self.__operador
 
     def calcular(self):
-        if self.__operador == "+":
-            return self.__num1 + self.__num2
-        elif self.__operador == "-":
-            return self.__num1 - self.__num2
-        elif self.__operador == "*":
-            return self.__num1 * self.__num2
-        elif self.__operador == "/":
-            if self.__num2 != 0:
-                return self.__num1 / self.__num2
-            else:
-                division0 = r"""
-                     _.-^^---....,,--
-                 _--                  --_
-                <                        >)
-                |                         |
-                 \._                   _./
-                    ```--. . , ; .--'''
-                          | |   |
-                       .-=||  | |=-.
-                       `-=#$%&%$#=-'
-                          | ;  :|
-                 _____.,-#%&$@%#~,._____
-                 NO SE PUEDE DIVIDIR POR 0
-                """
+        match self.__operador:
+            case "+":
+                return self.__num1 + self.__num2
+            case "-":
+                return self.__num1 - self.__num2
+            case "*":
+                return self.__num1 * self.__num2
+            case "/":
+                if self.__num2 != 0:
+                    return self.__num1 / self.__num2
+                else:
+                    division0 = r"""
+                                         _.-^^---....,,--
+                                     _--                  --_
+                                    <                        >)
+                                    |                         |
+                                     \._                   _./
+                                        ```--. . , ; .--'''
+                                              | |   |
+                                           .-=||  | |=-.
+                                           `-=#$%&%$#=-'
+                                              | ;  :|
+                                     _____.,-#%&$@%#~,._____
+                                     NO SE PUEDE DIVIDIR POR 0
+                                    """
 
-                return division0
+                    return division0
+            case _:
+                raise ValueError("Operador no válido")
+
+
+
+
+
+
 
 
 '''
