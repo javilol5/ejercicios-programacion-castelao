@@ -68,4 +68,5 @@ if len(solfecha) == 10:
                     case 12:
                         sol = "diciembre"
 
+
 print(sol)
