@@ -7,12 +7,9 @@ f4 = Data(1,1,2000)
 f5 = Data(30,2,2019)
 
 
-print(f1.esValido())
-print(f2.esValido())
-print(f3.esValido())
-print(f4.esValido())
-print(f5.esValido())
-
-f5.month = 15
-print (f5.month)
+print(f1)
+print(f2)
+print(f3)
+print(f4)
+print(f5)
 

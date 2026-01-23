@@ -1,13 +1,21 @@
 class Data:
     def __init__(self, day, month, year):
-        self.setDia(day)
-        self.setMes(month)
+        self.__year = None
+        self.__month = None
+        self.__day = None
+
         self.setAno(year)
+        self.setMes(month)
+        self.setDia(day)
 
     def setDia(self, day):
+        if self.__year is None or self.__month is None:
+            self.__day = None
+            return
+
         diasmes = {
             1: 31,
-            2: 28,
+            2: 29 if self.eBisiesto(self.__year) else 28,
             3: 31,
             4: 30,
             5: 31,
@@ -20,17 +28,10 @@ class Data:
             12: 31
         }
 
-        for mes in diasmes.keys():
-            if day > 0 and day <= diasmes[mes]:
-                self.__day = day
-            else:
-                if mes == 2 and self.eBisiesto(self.year):
-                    if day == 29:
-                        self.__day = 29
-                else:
-                    self.__year = None
-                    self.__month = None
-                    self.__day = None
+        if 1 <= day <= diasmes[self.__month]:
+            self.__day = day
+        else:
+            self.__day = None
 
 
 
@@ -39,7 +40,7 @@ class Data:
         return self.__day
 
     def setMes(self, month):
-        if month>0 and month<13 and self.__year is not None:
+        if self.__year is not None and 1 <= month <= 12:
             self.__month = month
         else:
             self.__month = None
@@ -49,17 +50,17 @@ class Data:
 
     def setAno(self, year):
         if year >= 0:
-            self.__year
+            self.__year = year
+        else:
+            self.__year = None
 
     def getAno(self):
         return self.__year
 
-    def eBisiesto(year):
-        if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-            return True
-        else:
-            return False
+    def eBisiesto(self, year):
+        return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
 
     def __str__(self):
+        if self.__day is None or self.__month is None or self.__year is None:
+            return "Data inválida"
         return f"A data é {self.__day}/{self.__month}/{self.__year}"
-
