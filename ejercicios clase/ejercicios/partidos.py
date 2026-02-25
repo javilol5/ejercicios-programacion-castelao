@@ -1,3 +1,6 @@
+import csv
+import os
+
 class Partido:
     def __init__(self, equipo1, equipo2, puntuacion_equipo1, puntuacion_equipo2):
         self.equipo1 = equipo1
@@ -17,7 +20,9 @@ def mostrar_menu():
     print("1. Añadir partido")
     print("2. Mostrar partido")
     print("3. Modificar partido")
-    print("4. Salir")
+    print("4. Importar archivo .csv")
+    print("5. Borrar partido")
+    print("6. Salir")
 
 
 def pedir_partido():
@@ -115,11 +120,96 @@ def modificar_partido():
     except ValueError:
         print("Entrada inválida.")
 
+def importar_datos():
+    entrada = input("Introduce el nombre de un archivo CSV o datos (equipo1,equipo2,p1,p2): ").strip()
+
+    # archivo CSV existente
+    if os.path.isfile(entrada) and entrada.endswith(".csv"):
+        try:
+            with open(entrada, "r", encoding="utf-8") as csvfile:
+                lector = csv.reader(csvfile)
+                primera_fila = True
+
+                with open("resultados.txt", "a", encoding="utf-8") as archivo:
+                    for fila in lector:
+
+                        if primera_fila and not fila[2].isdigit():
+                            primera_fila = False
+                            continue
+
+                        if len(fila) != 4:
+                            continue
+
+                        equipo1 = fila[0]
+                        equipo2 = fila[1]
+                        p1 = fila[2]
+                        p2 = fila[3]
+
+                        linea = f"{equipo1} {equipo2} ({p1}-{p2})"
+                        archivo.write(linea + "\n")
+
+            print("Datos importados desde el archivo CSV.")
+
+        except Exception:
+            print("Error al importar el archivo CSV.")
+
+    #línea de datos
+    else:
+        try:
+            partes = entrada.split(",")
+
+            if len(partes) != 4:
+                print("Formato incorrecto.")
+                return
+
+            equipo1 = partes[0]
+            equipo2 = partes[1]
+            p1 = partes[2]
+            p2 = partes[3]
+
+            with open("resultados.txt", "a", encoding="utf-8") as archivo:
+                archivo.write(f"{equipo1} {equipo2} ({p1}-{p2})\n")
+
+            print("Partido añadido correctamente.")
+
+        except Exception:
+            print("Error al añadir el partido.")
+
+def borrar_partido():
+    try:
+        with open("resultados.txt", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+
+        if not lineas:
+            print("No hay partidos para borrar.")
+            return
+
+        print("\n--- PARTIDOS ---")
+        for i in range(len(lineas)):
+            print(f"{i + 1}. {lineas[i].strip()}")
+
+        indice = int(input("Elige el número del partido a borrar: ")) - 1
+
+        if indice < 0 or indice >= len(lineas):
+            print("Número inválido.")
+            return
+
+        partido_borrado = lineas.pop(indice)
+
+        with open("resultados.txt", "w", encoding="utf-8") as archivo:
+            archivo.writelines(lineas)
+
+        print(f"Partido borrado correctamente: {partido_borrado.strip()}")
+
+    except FileNotFoundError:
+        print("El archivo no existe.")
+    except ValueError:
+        print("Entrada inválida. Introduce un número.")
 
 def main():
     opcion = 0
 
-    while opcion != 4:
+    while opcion != 6:
         mostrar_menu()
         opcion = int(input("Elige una opción: "))
 
@@ -130,6 +220,10 @@ def main():
         elif opcion == 3:
             modificar_partido()
         elif opcion == 4:
+            importar_datos()
+        elif opcion == 5:
+            borrar_partido()
+        elif opcion == 6:
             print("Saliendo del programa...")
         else:
             print("Opción no válida.")
