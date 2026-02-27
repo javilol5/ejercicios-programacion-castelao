@@ -21,12 +21,13 @@ def mostrar_menu():
     print("3. Modificar producto")
     print("4. Importar productos .csv")
     print("5. Borrar producto")
-    print("6. Salir")
+    print("6. Operaciones")
+    print("0. Salir")
 
 def sumar_producto():
     nombre = input("Introduce el nombre del producto: ").capitalize()
     cantidad = int(input("Introduce la cantidad del producto: "))
-    precio = round(float(input("Introduce el precio del producto: ")), 2)
+    precio = float(input("Introduce el precio del producto: "))
 
     producto = Producto(nombre, cantidad, precio)
 
@@ -42,9 +43,14 @@ def mostrar_producto():
                 print("No hay productos guardados.")
             else:
                 print("\n--- PRODUCTOS GUARDADOS ---")
-                print("\n Nombre   Cantidad   Precio")
-                for linea in lineas:
-                    print(linea.strip())
+                print(f"{'ID':<5}{'Nombre':<15}{'Cantidad':>10}{'Precio':>10}")
+                print(f"{'--':<5}{'------':<15}{'--------':>10}{'------':>10}")
+                for indice, linea in enumerate(lineas, start=1):
+                    nombre, cantidad, precio = linea.strip().split(",")
+
+                    precio = round(float(precio), 2)
+
+                    print(f"{indice:<5}{nombre:<15}{cantidad:>10}{precio:>10.2f}")
 
     except FileNotFoundError:
         print("El archivo no existe todavía.")
@@ -58,10 +64,8 @@ def modificar_producto():
             print("No hay productos para modificar.")
             return
 
-        print("\n--- PRODUCTOS ---")
-        print("\nNombre   Cantidad   Precio")
-        for i in range(len(lineas)):
-            print(f"{lineas[i].strip()}")
+        else:
+            mostrar_producto()
 
         indice = int(input("Elige el numero del producto a modificar: "))-1
 
@@ -132,8 +136,9 @@ def importar_producto():
                         cantidad = fila[1]
                         precio = fila[2]
 
-                        linea = f"{nombre}   {cantidad}   {precio}"
-                        archivo.write(linea + "\n")
+                        producto = Producto(nombre, cantidad, precio)
+
+                        producto.guardar_en_archivo()
 
             print("Datos importados desde el archivo CSV.")
 
@@ -152,9 +157,9 @@ def importar_producto():
             nombre = partes[0].capitalize()
             cantidad = partes[1]
             precio = partes[2]
+            producto = Producto(nombre, cantidad, precio)
 
-            with open("datos.csv", "a", encoding="utf-8") as archivo:
-                archivo.write(f"{nombre}   {cantidad}   {precio}\n")
+            producto.guardar_en_archivo()
 
             print("Producto añadido correctamente.")
 
@@ -170,15 +175,12 @@ def borrar_producto():
             print("No hay productos para borrar.")
             return
 
-        print("\n--- PRODUCTOS ---")
-        print("\nNombre   Cantidad   Precio")
-        for i in range(len(lineas)):
-            print(f"{i + 1}. {lineas[i].strip()}")
+        mostrar_producto()
 
         indice = int(input("Elige el numero del producto a borrar: ")) - 1
 
         if indice < 0:
-            print("Nunero inválido.")
+            print("Cancelado.")
             return
 
         producto_borrado = lineas.pop(indice)
@@ -193,10 +195,93 @@ def borrar_producto():
     except ValueError:
         print("Entrada inválida. Introduce un número.")
 
-def main():
-    opcion = 0
+def menu_operaciones():
+    opcion = 999
+    while opcion != 0:
 
-    while opcion != 6:
+        print("\n--- MENÚ OPERACIONES---")
+        print("1. Aumentar stock producto")
+        print("2. Disminuir stock producto")
+        print("3. Calcular stock almacen")
+        print("4. Calcular costo cantidad producto")
+        print("5. Calcular costo producto")
+        print("6. Calcular costo almacen")
+        print("0. Salir")
+
+        opcion = int(input("Elige una opción: "))
+
+        if opcion == 1:
+            aumentar_stock()
+        elif opcion == 2:
+            disminuir_stock()
+        elif opcion == 3:
+            calcular_stock()
+        elif opcion == 4:
+            calcular_precio_cantidad_producto()
+        elif opcion == 5:
+            calcular_precio_producto()
+        elif opcion == 6:
+            calcular_precio_almacen()
+        elif opcion == 0:
+            print("Saliendo del programa...")
+        else:
+            print("Opción no válida.")
+
+def aumentar_stock():
+
+    try:
+        with open("datos.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+
+        if not lineas:
+            print("No hay productos para modificar.")
+            return
+
+        mostrar_producto()
+
+        indice = int(input("Elige el numero del producto a modificar: "))-1
+
+        if indice < 0:
+            print("Numero inválido.")
+            return
+
+        linea = lineas[indice].strip()
+        partes = linea.split(',')
+        nombre = partes[0]
+        cantidad = partes[1]
+        precio = partes[2]
+
+        print("\nProducto seleccionado:")
+        print(f"{nombre}   {cantidad}   {precio}")
+
+        stock = int(input("Cuanto stock aumenta: "))
+        cantidad = int(cantidad)
+        cantidad += stock
+
+        nueva_linea = f"{nombre}   {cantidad}   {precio}\n"
+        lineas[indice] = nueva_linea
+
+        producto = Producto(nombre, cantidad, precio)
+
+        producto.guardar_en_archivo()
+
+        print("Producto modificado correctamente.")
+        print(nueva_linea)
+
+    except FileNotFoundError:
+        print("El archivo no existe.")
+    except ValueError:
+        print("Entrada inválida.")
+
+
+
+
+
+
+def main():
+    opcion = 999
+
+    while opcion != 0:
         mostrar_menu()
         opcion = int(input("Elige una opción: "))
 
@@ -211,6 +296,8 @@ def main():
         elif opcion == 5:
             borrar_producto()
         elif opcion == 6:
+            menu_operaciones()
+        elif opcion == 0:
             print("Saliendo del programa...")
         else:
             print("Opción no válida.")
