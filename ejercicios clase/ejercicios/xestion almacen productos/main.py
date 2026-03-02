@@ -258,12 +258,13 @@ def aumentar_stock():
         cantidad = int(cantidad)
         cantidad += stock
 
-        nueva_linea = f"{nombre}   {cantidad}   {precio}\n"
+        nueva_linea = f"{nombre},{cantidad},{precio}\n"
         lineas[indice] = nueva_linea
 
         producto = Producto(nombre, cantidad, precio)
 
-        producto.guardar_en_archivo()
+        with open("datos.csv", "w", encoding="utf-8") as archivo:
+            archivo.writelines(lineas)
 
         print("Producto modificado correctamente.")
         print(nueva_linea)
@@ -274,7 +275,185 @@ def aumentar_stock():
         print("Entrada inválida.")
 
 
+def disminuir_stock():
+    try:
+        with open("datos.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
 
+        if not lineas:
+            print("No hay productos para modificar.")
+            return
+
+        mostrar_producto()
+
+        indice = int(input("Elige el numero del producto a modificar: "))-1
+
+        if indice < 0:
+            print("Numero inválido.")
+            return
+
+        linea = lineas[indice].strip()
+        partes = linea.split(',')
+        nombre = partes[0]
+        cantidad = partes[1]
+        precio = partes[2]
+
+        print("\nProducto seleccionado:")
+        print(f"{nombre}   {cantidad}   {precio}")
+
+        stock = int(input("Cuanto stock aumenta: "))
+        cantidad = int(cantidad)
+        cantidad -= stock
+
+        nueva_linea = f"{nombre},{cantidad},{precio}\n"
+        lineas[indice] = nueva_linea
+
+        producto = Producto(nombre, cantidad, precio)
+
+        with open("datos.csv", "w", encoding="utf-8") as archivo:
+            archivo.writelines(lineas)
+
+        print("Producto modificado correctamente.")
+        print(nueva_linea)
+
+    except FileNotFoundError:
+        print("El archivo no existe.")
+    except ValueError:
+        print("Entrada inválida.")
+
+
+def calcular_stock():
+    try:
+        with open("datos.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+
+        if not lineas:
+            print("No hay productos para calcular.")
+            return
+
+        total = 0
+
+        for linea in lineas:
+            linea = linea.strip()
+            partes = linea.split(",")
+
+            cantidad = int(partes[1])
+            total += cantidad
+
+        print(f"\nStock total disponible: {total}")
+
+    except FileNotFoundError:
+        print("El archivo no existe.")
+    except ValueError:
+        print("Entrada inválida.")
+
+def calcular_precio_cantidad_producto():
+    try:
+        with open("datos.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+
+        if not lineas:
+            print("No hay productos para calcular.")
+            return
+
+        mostrar_producto()
+
+        indice = int(input("Elige el numero del producto para calcular: "))-1
+
+        if indice < 0 or indice >= len(lineas):
+            print("Numero inválido.")
+            return
+
+        linea = lineas[indice].strip()
+        partes = linea.split(',')
+        nombre = partes[0]
+        cantidad = int(partes[1])
+        precio = float(partes[2])
+
+
+        print("\nProducto seleccionado:")
+        print(f"{nombre}   {cantidad}   {precio}")
+
+        mult = int(input("Cuantidad de productos a calcular: "))
+
+        if mult > cantidad or mult <= 0:
+            print("cantidad invalida")
+        else:
+            total = mult * precio
+            print(f"Precio total por {mult} unidades: {total:.2f} €")
+
+
+    except FileNotFoundError:
+        print("El archivo no existe.")
+    except ValueError:
+        print("Entrada inválida.")
+
+def calcular_precio_producto():
+
+    try:
+        with open("datos.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+
+        if not lineas:
+            print("No hay productos para calcular.")
+            return
+
+        mostrar_producto()
+
+        indice = int(input("Elige el numero del producto para calcular: "))-1
+
+        if indice < 0 or indice >= len(lineas):
+            print("Numero inválido.")
+            return
+
+        linea = lineas[indice].strip()
+        partes = linea.split(',')
+        nombre = partes[0]
+        cantidad = int(partes[1])
+        precio = float(partes[2])
+
+
+        print("\nProducto seleccionado:")
+        print(f"{nombre}   {cantidad}   {precio}")
+
+
+        total = cantidad * precio
+        print(f"Precio total por {cantidad} unidades: {total:.2f} €")
+
+
+    except FileNotFoundError:
+        print("El archivo no existe.")
+    except ValueError:
+        print("Entrada inválida.")
+
+def calcular_precio_almacen():
+    try:
+        with open("datos.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+
+        if not lineas:
+            print("No hay productos para calcular.")
+            return
+
+        mostrar_producto()
+
+        total = 0
+
+        for linea in lineas:
+            linea = linea.strip()
+            partes = linea.split(",")
+
+            cantidad = int(partes[1])
+            precio = float(partes[2])
+            sumar = cantidad * precio
+            total += sumar
+
+        print(f"\nStock total disponible: {total:.2f} €")
+
+    except FileNotFoundError:
+        print("El archivo no existe.")
+    except ValueError:
+        print("Entrada inválida.")
 
 
 
