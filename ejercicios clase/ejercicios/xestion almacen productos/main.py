@@ -1,5 +1,6 @@
 import csv
 import os
+import pickle
 
 class Producto:
     def __init__(self, nombre, cantidad, precio):
@@ -22,6 +23,7 @@ def mostrar_menu():
     print("4. Importar productos .csv")
     print("5. Borrar producto")
     print("6. Operaciones")
+    print("7. Pickle")
     print("0. Salir")
 
 def sumar_producto():
@@ -455,7 +457,76 @@ def calcular_precio_almacen():
     except ValueError:
         print("Entrada inválida.")
 
+def menu_pickle():
+    opcion = 999
+    while opcion != 0:
 
+        print("\n--- MENÚ PICKLE---")
+        print("1. Guardar Pickle")
+        print("2. Leer Pickle")
+        print("0. Salir")
+
+        opcion = int(input("Elige una opción: "))
+
+        if opcion == 1:
+            guardar_pickle()
+        elif opcion == 2:
+            leer_pickle()
+        elif opcion == 0:
+            print("Saliendo del programa...")
+        else:
+            print("Opción no válida.")
+
+def guardar_pickle():
+
+    try:
+        productos = []
+
+        with open("datos.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+
+
+
+        for linea in lineas:
+            linea = linea.strip()
+            partes = linea.split(",")
+
+            nombre = partes[0]
+            cantidad = int(partes[1])
+            precio = float(partes[2])
+
+            producto = [nombre, cantidad, precio]
+            productos.append(producto)
+
+        with open("datos_bin.dat", "wb") as archivo_bin:
+            pickle.dump(productos, archivo_bin)
+
+        print("\nProductos guardados en archivo binario.")
+
+    except FileNotFoundError:
+        print("El archivo CSV no existe.")
+
+
+def leer_pickle():
+    try:
+        with open("datos_bin.dat", "rb") as archivo_bin:
+            productos = pickle.load(archivo_bin)
+
+        if not productos:
+            print("No hay datos en el archivo.")
+            return
+
+        print("\nProductos guardados en binario:\n")
+
+        for producto in productos:
+            nombre = producto[0]
+            cantidad = producto[1]
+            precio = producto[2]
+
+            print(f"{nombre}   {cantidad}   {precio}")
+
+    except FileNotFoundError:
+        print("El archivo binario no existe.")
 
 def main():
     opcion = 999
@@ -476,6 +547,8 @@ def main():
             borrar_producto()
         elif opcion == 6:
             menu_operaciones()
+        elif opcion == 7:
+            menu_pickle()
         elif opcion == 0:
             print("Saliendo del programa...")
         else:
